@@ -115,13 +115,13 @@ dbt debug
 
 We've created a few core models that take care of defining [_sources_](https://materialize.com/docs/overview/api-components/#sources) in Materialize:
 
-* `rp_flight_information.sql`
+* `rp_twitter_trending.sql`
 
 * `icao_mapping.sql`
 
 , as well as some staging [_views_](https://materialize.com/docs/overview/api-components/#non-materialized-views) to transform the source data:
 
-* `stg_flight_information.sql`
+* `stg_twitter_trending.sql`
 
 * `stg_icao_mapping.sql`
 

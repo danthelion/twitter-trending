@@ -28,20 +28,15 @@ def get_trending_data():
     prod = KafkaProducer(bootstrap_servers='redpanda:9092')
 
     for loc in available_loc:
-        print(loc)
         time.sleep(5)
         place_trends = api.get_place_trends(loc['woeid'])
         msg = {
             "location": loc,
             "trends": place_trends
         }
-        if not loc['countryCode']:
-            key = 'Global'
-        else:
-            key = loc['countryCode']
         prod.send(
             topic='trending_data',
-            key=key.encode('utf-8'),
+            key=loc['woeid'].encode('utf-8'),
             value=json.dumps(msg).encode('utf-8')
         )
 

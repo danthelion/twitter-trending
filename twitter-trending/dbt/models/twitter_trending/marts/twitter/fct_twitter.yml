@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: fct_twitter_trending
+    description: ""
+    columns:
+      - name: location_name
+        description: "Location name, town or city"
+      - name: location_country
+        description: "Country"
+      - name: trends
+        description: "The trending phrase or hashtag"
+

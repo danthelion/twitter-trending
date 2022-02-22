@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_twitter_trending
+    description: ""
+    columns:
+      - name: location_name
+        description: "Location name, town or city"
+      - name: location_country
+        description: "Country"
+      - name: trend_name
+        description: "The trending phrase or hashtag"
+      - name: tweet_volume
+        description: "How many tweets were made about this phrase"
+
