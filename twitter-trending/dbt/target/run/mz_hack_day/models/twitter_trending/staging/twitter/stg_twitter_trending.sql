@@ -21,17 +21,21 @@ casted AS (
 ),
 renamed AS (
     SELECT
-
-       (data->'location'->'name')::string as location_name,
-       (data->'location'->'country')::string as location_country,
-       (data->'trends'->0->'trends')::jsonb as trends
+       (data->'location'->>'name')::string as location_name,
+       (data->'location'->>'country')::string as location_country,
+       (data->'location'->>'woeid')::string as woeid,
+       (data->'trends'->0->'trends')::jsonb as trends,
+       (data->'trends'->0->>'as_of')::timestamp as trend_as_of
     FROM casted
 ),
 final AS (
     SELECT
         location_name,
         location_country,
-        trends
+        woeid,
+        jsonb_array_elements(trends)->>'name' as trend_name,
+        TRIM(jsonb_array_elements(trends)->>'tweet_volume')::integer as trend_volume,
+        trend_as_of
     FROM renamed
 )
 

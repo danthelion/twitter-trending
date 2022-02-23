@@ -13,5 +13,5 @@ clean-targets:
 
 models:
 
-  twitter:
+  twitter_trending:
     +enabled: true

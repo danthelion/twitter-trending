@@ -3,3 +3,6 @@ version: 2
 models:
   - name: rp_twitter_trending
     description: Twitter Trending Data for Places
+
+  - name: worldcities
+    description: Coordinate information for world cities

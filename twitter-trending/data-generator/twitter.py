@@ -28,7 +28,7 @@ def get_trending_data():
     prod = KafkaProducer(bootstrap_servers='redpanda:9092')
 
     for loc in available_loc:
-        time.sleep(5)
+        time.sleep(15)
         place_trends = api.get_place_trends(loc['woeid'])
         msg = {
             "location": loc,

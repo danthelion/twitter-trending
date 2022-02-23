@@ -8,6 +8,14 @@ models:
         description: "Location name, town or city"
       - name: location_country
         description: "Country"
-      - name: trends
+      - name: trend_name
         description: "The trending phrase or hashtag"
+      - name: trend_volume
+        description: "How many tweets were made about this phrase"
+      - name: location_latitude
+        description: "Latitude of the location"
+      - name: location_longitude
+        description: "Longitude of the location"
+      - name: trend_date
+        description: "Date of the trend"
 

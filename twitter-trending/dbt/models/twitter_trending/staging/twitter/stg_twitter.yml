@@ -8,8 +8,36 @@ models:
         description: "Location name, town or city"
       - name: location_country
         description: "Country"
+      - name: woeid
+        description: "Where on Earth ID"
       - name: trend_name
         description: "The trending phrase or hashtag"
-      - name: tweet_volume
+      - name: trend_volume
         description: "How many tweets were made about this phrase"
-
+      - name: trend_as_of
+        description: "The date and time of the trend creation"
+  - name: stg_worldcities
+    description: "Location data for cities"
+    columns:
+      - name: city
+        description: "City name"
+      - name: city_ascii
+        description: "City name"
+      - name: lat
+        description: "Latitude"
+      - name: lng
+        description: "Longitude"
+      - name: country
+        description: "Country"
+      - name: iso2
+        description: "Country code"
+      - name: iso3
+        description: "Country code"
+      - name: admin_name
+        description: "Country name"
+      - name: capital
+        description: "Is this city the capital?"
+      - name: population
+        description: "Population"
+      - name: id
+        description: "City ID"
