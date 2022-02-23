@@ -1,6 +1,6 @@
 .DS_Store
-twitter_trending/dbt/target/
-twitter_trending/dbt/dbt_modules/
-twitter_trending/dbt/logs/
-twitter_trending/dbt/dbt_packages
+twitter-trending/dbt/target/
+twitter-trending/dbt/dbt_modules/
+twitter-trending/dbt/logs/
+twitter-trending/dbt/dbt_packages
 .idea
