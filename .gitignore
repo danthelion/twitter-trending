@@ -1,5 +1,6 @@
 .DS_Store
-sample_project/dbt/target/
-sample_project/dbt/dbt_modules/
-sample_project/dbt/logs/
-sample_project/dbt/dbt_packages
+twitter_trending/dbt/target/
+twitter_trending/dbt/dbt_modules/
+twitter_trending/dbt/logs/
+twitter_trending/dbt/dbt_packages
+.idea

@@ -12,7 +12,7 @@ with ranked_trends as (
          , wc.lng::float as location_longitude
          , ROW_NUMBER() over (partition by tt.woeid order by tt.trend_volume desc) as trend_rank
 from "materialize"."public"."stg_twitter_trending" tt
-    join "materialize"."public"."stg_worldcities" wc
+    left join "materialize"."public"."stg_worldcities" wc
 on tt.location_name = wc.city and tt.location_country = wc.country
 where tt.trend_volume > 0
     )
