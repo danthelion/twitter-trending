@@ -1,8 +1,8 @@
 # Twitter Trending Data Generator
 
 The `twitter.py` data generator pulls live twitter trending data from
-the [Twitter API](https://developer.twitter.com/en/docs/twitter-api/v1/trends/trends-for-location/api-reference/get-trends-place) [^1] **
-every 15 seconds**, and uses the [Kafka Python client](https://kafka-python.readthedocs.io/en/master/) (`kafka-python`)
+the [Twitter API](https://developer.twitter.com/en/docs/twitter-api/v1/trends/trends-for-location/api-reference/get-trends-place)
+every 15 seconds, and uses the [Kafka Python client](https://kafka-python.readthedocs.io/en/master/) (`kafka-python`)
 to push events into Redpanda.
 
 **Example:**
