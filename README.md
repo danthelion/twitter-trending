@@ -1,1 +1,3 @@
-Materialize Redpanda dbt
+# A sample project using Materialize, dbt and Redpanda
+
+Details: 

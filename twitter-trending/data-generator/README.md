@@ -1,52 +1,67 @@
-# OpenSky Data Generator
+# Twitter Trending Data Generator
 
-The `opensky.py` data generator pulls live flight information data from the [OpenSky REST API](https://openskynetwork.github.io/opensky-api/rest.html) [^1] **every 15 seconds**, and uses the [Kafka Python client](https://kafka-python.readthedocs.io/en/master/) (`kafka-python`) to push events into Redpanda.
-
-**Example:**
-
-```javascript
-{
-	"icao24": "c00734",
-	"callsign": "WJA1468",
-	"origin_country": "Canada",
-	"time_position": 1644173486,
-	"last_contact": 1644173487,
-	"longitude": -112.5983,
-	"latitude": 41.6014,
-	"baro_altitude": 10668,
-	"on_ground": false,
-	"velocity": 256.33,
-	"true_track": 178.16,
-	"vertical_rate": 0,
-	"sensors": null,
-	"geo_altitude": 10835.64,
-	"squawk": "1374",
-	"spi": false,
-	"position_source": 0
-}
-```
-
-The flight information events can be enriched with the sample aircraft reference data provided in [`/data`](../data) based on the `icao24` field.
+The `twitter.py` data generator pulls live twitter trending data from
+the [Twitter API](https://developer.twitter.com/en/docs/twitter-api/v1/trends/trends-for-location/api-reference/get-trends-place) [^1] **
+every 15 seconds**, and uses the [Kafka Python client](https://kafka-python.readthedocs.io/en/master/) (`kafka-python`)
+to push events into Redpanda.
 
 **Example:**
 
-```javascript
+```json
 {
-	"icao24":"c00734",
-	"manufacturericao":"AIRBUS",
-	"manufacturername":"Airbus",
-	"model":"ACJ319 115X",
-	"typecode":"A319",
-	"icaoaircrafttype":"L2J",
-	"operator":"Qatar Executive",
-	"operatorcallsign":"",
-	"operatoricao":"QQE",
-	"built":"2009-01-01",
-	"categorydescription":"Large (75000 to 300000 lbs)"
+  "location": {
+    "name": "Barcelona",
+    "placeType": {
+      "code": 7,
+      "name": "Town"
+    },
+    "url": "http://where.yahooapis.com/v1/place/395273",
+    "parentid": 23424982,
+    "country": "Venezuela",
+    "woeid": 395273,
+    "countryCode": "VE"
+  },
+  "trends": [
+    {
+      "trends": [
+        {
+          "name": "#23Feb",
+          "url": "http://twitter.com/search?q=%2323Feb",
+          "promoted_content": null,
+          "query": "%2323Feb",
+          "tweet_volume": 25647
+        },
+        {
+          "name": "#ConstruirPatriaEsProducir",
+          "url": "http://twitter.com/search?q=%23ConstruirPatriaEsProducir",
+          "promoted_content": null,
+          "query": "%23ConstruirPatriaEsProducir",
+          "tweet_volume": 28664
+        },
+        {
+          "name": "Rusia",
+          "url": "http://twitter.com/search?q=Rusia",
+          "promoted_content": null,
+          "query": "Rusia",
+          "tweet_volume": 209119
+        }
+      ],
+      "as_of": "2022-02-23T13:30:37Z",
+      "created_at": "2022-02-10T05:40:07Z",
+      "locations": [
+        {
+          "name": "Barcelona",
+          "woeid": 395273
+        }
+      ]
+    }
+  ]
 }
 ```
 
-[^1]: The OpenSky Network, http://www.opensky-network.org
+The twitter trending data can be enriched with the sample city location data provided in [`/data`](../data) based on
+the `city` and `country` fields.
+
 
 ## Tweaking the code
 
