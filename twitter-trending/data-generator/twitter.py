@@ -43,7 +43,7 @@ def get_trending_data():
 
 if __name__ == '__main__':
     get_trending_data()
-    schedule.every(15).seconds.do(get_trending_data)
+    schedule.every(180).seconds.do(get_trending_data)
 
     while True:
         schedule.run_pending()
